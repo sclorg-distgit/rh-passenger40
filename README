@@ -1,0 +1,38 @@
+Package %{scl_name} provides Nginx web server as a Software
+Collection.  For more information about Software Collections, see
+scl(1).  By installing the %{scl_name} collection, you will get a
+minimal set of packages to have a working Nginx web server.
+
+%if 0%{?rhel} >= 7
+Usage: systemctl start %{?scl_prefix}nginx
+%else
+Usage: service %{?scl_prefix}nginx start
+%endif
+
+Software Collections allows use of applications which are not located
+in the filesystem root hierarchy but are present in an alternative
+location, which is %{_scl_root} in case of the %{scl_name}
+collection.
+
+Nginx is a web server and a reverse proxy server for HTTP, SMTP, POP3 and
+IMAP protocols, with a strong focus on high concurrency, performance and low
+memory usage.
+
+When working with the %{scl_name} collection, use the "scl" utility
+(see scl(1) for usage) to enable the scl environment properly.
+
+Configuration for the %{scl_name} software collection is located under %{_sysconfdir}.
+
+Examples:
+scl enable %{scl_name} 'command --arg'
+  Run a specific command with argument --arg within %{scl_name} software collections
+  environment.
+
+scl enable %{scl_name} bash
+  Run interactive shell where %{scl_name} software collection is enabled.
+
+scl enable %{scl_name} 'man nginx'
+  Show man pages for nginx command, which is part of the %{scl_name} software
+  collection.
+
+Report bugs to <http://bugzilla.redhat.com>.
